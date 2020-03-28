@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {Course} from './components/Course.js'
 
 const Courses = props => {
   return (
@@ -9,48 +10,13 @@ const Courses = props => {
       })}
     </div>
   )
-}
-
-const Course = props => {
-  return (
-    <div>
-      <Header2 course={props.course.name} />
-      <Content parts={props.course.parts} />
-      <Total parts={props.course.parts} />
-    </div>
-  )
-}
+};
 
 const Header1 = ({curriculumName}) =>
-  <h1>{curriculumName}</h1>
+  <h1>{curriculumName}</h1>;
   
-  const Header2 = props =>
-  <h2>{props.course}</h2>
-
-const Total = props => {
-  const total = props.parts.reduce(function (sum, part) {
-    return sum + part.exercises
-  }, 0)
-
-  return <p>total of {total} exercises</p>
-}
-  
-
-const Part = props =>
-  <span>{props.part.name} {props.part.exercises}</span>
-
-const Content = props => {
-    return (
-      <ul>
-        {props.parts.map(part => <p key={part.id}>
-            <Part part={part} />
-          </p> )}
-      </ul>
-    )
-  }
-
 const App = () => {
-  const curriculumName = "Web development curriculum"
+  const curriculumName = "Web development curriculum";
   const courses = [
     {
     name: 'Half Stack application development',
@@ -93,17 +59,17 @@ const App = () => {
         id: 2
       }
     ]
-  }
-]
+  },
+
+];
 
   return (
     <div>
       <Header1 curriculumName={curriculumName} />
       <Courses courses={courses} />
-      {/* <Course course={courses[1]} /> */}
     </div>
   )
-}
+};
 
 ReactDOM.render(
   <App />,
